@@ -4,18 +4,25 @@ import {Genshin, HSR} from './lib/gifts.ts'
 serve(async request => {
   const url = new URL(request.url)
   if (request.method === 'GET') {
-    if (url.pathname === '/gifts/genshin') {
-      return new Response.json(await Genshin.Gifts())
-    }
-    if (url.pathname === '/gifts/hsr') {
-      return new Response.json(await HSR.Gifts())
+    try {
+      if (url.pathname === '/gifts/genshin') {
+        return Response.json(await Genshin.Gifts())
+      }
+      if (url.pathname === '/gifts/hsr') {
+        return Response.json(await HSR.Gifts())
+      }
+    } catch (e) {
+      console.error(e)
+      return Response.json({
+        error: e.message
+      })
     }
   }
 
   return new Response('Not found!', {
     headers: {
-      'cache-control': 'max-age=60'
-    }
+      'cache-control': 'max-age=5',
+    },
   })
 }, {port: 50000})
 
