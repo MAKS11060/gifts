@@ -25,5 +25,3 @@ serve(async request => {
     },
   })
 }, {port: 50000})
-
-
