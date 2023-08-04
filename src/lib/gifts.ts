@@ -7,14 +7,16 @@ export class Genshin {
 		const htmlRaw = await response.text()
 
 		const html = new DOMParser().parseFromString(htmlRaw, 'text/html')
-		if (!html?.textContent) return null
+		if (!html?.textContent) throw new Error('Parse html error')
 
 		// Get table content
 		const tbody = html.querySelector(".dcf-overflow-x-auto > table > tbody")
-		if (!tbody?.textContent) return null
+		if (!tbody?.textContent) throw new Error('Parse table error')
 
 		// Get table items
 		const c = tbody.querySelectorAll('th > .gcode')
+		if (![...c].length) throw new Error('Parse codes error')
+
 		return {
 			codes: [...c].map(value => value.textContent)
 		}
@@ -28,19 +30,18 @@ export class HSR {
 		const htmlRaw = await response.text()
 
 		const html = new DOMParser().parseFromString(htmlRaw, 'text/html')
-		if (!html?.textContent) return null
+		if (!html?.textContent) throw new Error('Parse html error')
 
 		// Get table content
 		const tbody = html.querySelector("table > tbody")
-		if (!tbody?.textContent) return null
+		if (!tbody?.textContent) throw new Error('Parse table error')
 
 		// Get table items
 		const c = tbody.querySelectorAll('th > .gcode')
+		if (![...c].length) throw new Error('Parse codes error')
+
 		return {
 			codes: [...c].map(value => value.textContent)
 		}
 	}
 }
-
-console.log(await Genshin.Gifts())
-console.log(await HSR.Gifts())

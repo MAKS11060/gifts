@@ -15,6 +15,8 @@ serve(async request => {
       console.error(e)
       return Response.json({
         error: e.message
+      }, {
+        status: '500'
       })
     }
   }
