@@ -10,7 +10,7 @@ export class Genshin {
 		if (!html?.textContent) return null
 
 		// Get table content
-		const tbody = html.querySelector("#post-8056 > div > div > div > table > tbody")
+		const tbody = html.querySelector(".dcf-overflow-x-auto > table > tbody")
 		if (!tbody?.textContent) return null
 
 		// Get table items
@@ -31,7 +31,7 @@ export class HSR {
 		if (!html?.textContent) return null
 
 		// Get table content
-		const tbody = html.querySelector("#post-25375 > div > div > table > tbody")
+		const tbody = html.querySelector("table > tbody")
 		if (!tbody?.textContent) return null
 
 		// Get table items
@@ -41,3 +41,6 @@ export class HSR {
 		}
 	}
 }
+
+console.log(await Genshin.Gifts())
+console.log(await HSR.Gifts())
