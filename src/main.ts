@@ -11,6 +11,13 @@ serve(async request => {
       if (url.pathname === '/gifts/hsr') {
         return Response.json(await HSR.Gifts())
       }
+
+      return Response.json({
+        error: 'Not found',
+        status: 404,
+      }, {
+        status: 404
+      })
     } catch (e) {
       console.error(e)
       return Response.json({
