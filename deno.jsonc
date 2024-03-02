@@ -1,0 +1,13 @@
+{
+  "lock": false,
+  "tasks": {
+    "start": "deno run -A main.ts",
+    "dev": "deno run -A --unstable-hmr main.ts",
+    "devr": "deno run -Ar --unstable-hmr main.ts"
+  },
+  "imports": {
+    "hono": "npm:hono",
+    "hono/cors": "npm:hono/cors",
+    "zodOpenApi": "npm:@hono/zod-openapi"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "tasks": {
-    "start": "deno run -A src/main.ts",
-    "dev": "deno run -A --unstable-hmr src/main.ts",
-    "devr": "deno run -Ar --unstable-hmr src/main.ts"
-  }
-}

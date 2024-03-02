@@ -1,4 +1,4 @@
-import {DOMParser, HTMLDocument} from '../deps.ts'
+import {DOMParser, HTMLDocument} from '../../deps.ts'
 
 const getPage = async (uri: string) => {
   const res = await fetch(uri)
@@ -47,4 +47,94 @@ export const hsr = async () => {
   )
   const codes = parseCodes(page.dom)
   return {codes}
+}
+
+export const afkArena = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/publ/guides/afk_arena/afk_arena_kody_vozmeshhenija/316-1-0-1502'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const stateOfSurvival = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/cheats/state-of-survival-kody-obmena/'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const idleHeroes = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/idle-heroes/idle-heroes-kody-obmena/'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const leftToSurvive = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/podarochnye-kody/left-to-survive-kody/'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const riseOfKingdoms = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/publ/guides/rise_of_kingdoms/rise_of_kingdoms_podarochnye_kody/314-1-0-1532'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const soulKnight = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/podarochnye-kody/soul-knight-kody/'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const lordsMobile = async () => {
+  const page = await getPage('https://guidesgame.ru/cheats/lords-mobile-kody/')
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const watcherOfRealms = async () => {
+  const page = await getPage(
+    'https://guidesgame.ru/podarochnye-kody/watcher-of-realms-kody/'
+  )
+  const codes = parseCodes(page.dom)
+  return {codes}
+}
+
+export const games = [
+  'genshin',
+  'hsr',
+  'afkArena',
+  'stateOfSurvival',
+  'idleHeroes',
+  'leftToSurvive',
+  'riseOfKingdoms',
+  'soulKnight',
+  'lordsMobile',
+  'watcherOfRealms',
+] as const
+
+export type GamesType = (typeof games)[number]
+
+export const getCode = (type: GamesType) => {
+  if (type === 'genshin') return genshin()
+  if (type === 'hsr') return hsr()
+  if (type === 'afkArena') return afkArena()
+  if (type === 'stateOfSurvival') return stateOfSurvival()
+  if (type === 'idleHeroes') return idleHeroes()
+  if (type === 'leftToSurvive') return leftToSurvive()
+  if (type === 'riseOfKingdoms') return riseOfKingdoms()
+  if (type === 'soulKnight') return soulKnight()
+  if (type === 'lordsMobile') return lordsMobile()
+  if (type === 'watcherOfRealms') return watcherOfRealms()
 }
