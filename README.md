@@ -11,7 +11,7 @@ const getCode = async (type: string) => {
 
 ## Api
 - `[GET]` `/doc` OpenApi schema
-  -  [Try on playground](https://editor-next.swagger.io/) `File` > `Import URL` > `https://game-gifts.deno.dev/doc`
+  -  [Try on playground](https://editor-next.swagger.io/) `File` > `Import URL` > `https://hoyoverse-gifts.deno.dev/doc`
 - `[GET]` [`/gifts/:type`](https://hoyoverse-gifts.deno.dev/gifts/hsr)
 
  | Endpoint (JSON)                                                    |                     Redeem Code                      |
