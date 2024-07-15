@@ -1,4 +1,4 @@
-import {assertEquals, assertExists} from 'https://deno.land/std/assert/mod.ts'
+import {assertEquals} from 'jsr:@std/assert'
 import {genshin, hsr} from './guidesGameRu.ts'
 
 Deno.test('genshin', async () => {

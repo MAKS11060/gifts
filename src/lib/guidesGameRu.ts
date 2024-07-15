@@ -1,4 +1,4 @@
-import {DOMParser, HTMLDocument} from '../../deps.ts'
+import {DOMParser, HTMLDocument} from '@b-fuze/deno-dom'
 
 const getPage = async (uri: string) => {
   const res = await fetch(uri)

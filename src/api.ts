@@ -1,4 +1,4 @@
-import {OpenAPIHono, createRoute, z} from 'zodOpenApi'
+import {OpenAPIHono, createRoute, z} from '@hono/zod-openapi'
 import {games, getCode} from './lib/guidesGameRu.ts'
 
 const giftsSchema = z
@@ -15,7 +15,9 @@ const giftsSchema = z
 
 const giftsResultSchema = z
   .object({
-    codes: z.array(z.string()).openapi({examples: [['GENSHINGIFT']]}),
+    codes: z.array(z.string()).openapi({
+      examples: [['GENSHINGIFT']],
+    }),
   })
   .openapi('giftsResult')
 
@@ -60,10 +62,10 @@ const app = new OpenAPIHono()
     async (c) => {
       const {type} = c.req.valid('param')
       try {
-        return c.json(await getCode(type))
+        return c.json(await getCode(type), 200)
       } catch (e) {
-        console.error(e)
-        return c.json({error: e.message}, {status: 500})
+        // console.error(e)
+        return c.json({error: e.message}, 500)
       }
     }
   )

@@ -6,8 +6,8 @@
     "devr": "deno run -Ar --unstable-hmr main.ts"
   },
   "imports": {
-    "hono": "npm:hono",
-    "hono/cors": "npm:hono/cors",
-    "zodOpenApi": "npm:@hono/zod-openapi"
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.47",
+    "@hono/zod-openapi": "npm:@hono/zod-openapi",
+    "hono": "jsr:@hono/hono"
   }
 }
